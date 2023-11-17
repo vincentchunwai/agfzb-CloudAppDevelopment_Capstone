@@ -10,6 +10,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
         header {
@@ -21,13 +22,21 @@
         }
 
         h1 {
-            color: #333;
+            color: #ff9900; /* Orange color for the header */
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 1.2em;
-            line-height: 1.6;
+            font-size: 1.1em;
             margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Container for additional content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Add more styles as needed */
@@ -37,6 +46,14 @@
             header {
                 padding: 10px 0;
             }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -45,9 +62,14 @@
         <h1>Welcome to Best Cars Dealership</h1>
     </header>
 
-    <div class="content">
+    <div class="container">
+        <!-- Home button -->
+        <a href="{% url 'djangoapp:index' %}" class="btn btn-primary mb-3">Home</a>
+
         <p>We are dedicated to providing the best cars in North America at reasonable prices.</p>
-        <!-- Add more content as needed -->
-    </div>
+        <!-- Additional content -->
+        <p>Who we are:
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
 </body>
 </html>

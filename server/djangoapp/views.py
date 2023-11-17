@@ -43,6 +43,15 @@ def get_dealerships(request):
     if request.method == "GET":
         return render(request, 'djangoapp/index.html', context)
 
+def about_us(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/about_us.html', context)
+
+def contact_us(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/contact.html', context)
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
 # def get_dealer_details(request, dealer_id):

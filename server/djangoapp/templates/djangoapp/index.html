@@ -40,14 +40,16 @@
                 <p class="navbar-text mx-3">Welcome, {{ user.first_name|default:user.username }}</p>
     
                 <!-- Signout button/link -->
-                <a class="btn btn-outline-danger my-2 my-sm-0">Signout</a>
+                <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url 'djangoapp:logout' %}">Signout</a>
             {% else %}
                 <!-- Add a form for username and password -->
-                <form class="form-inline my-2 my-lg-0 ml-auto">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
-                    <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'djangoapp:login' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" aria-label="Username">
+                    <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password" aria-label="Password">
+                    <button class="btn btn-outline-success my-2 my-sm-0 m-2" type="submit">Login</button>
                 </form>
+                <a class="btn btn-primary my-2 my-sm-0 m-2" href="{% url 'djangoapp:registration' %}">Sign up</a>
             {% endif %}
     </nav>
     

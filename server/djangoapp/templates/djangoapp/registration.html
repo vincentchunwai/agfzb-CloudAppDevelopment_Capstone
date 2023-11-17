@@ -4,8 +4,51 @@
     <meta charset="UTF-8">
     {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            padding: 16px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
 </head>
-    <body>
+<body>
     <!--Add a registration form here -->
-    </body>
+    <form action="{% url 'djangoapp:registration' %}" method="post">
+        <div class="container">
+            <h1 class="text-center">Sign Up</h1>
+            <hr>
+            <label for="username"><b>User Name</b></label>
+            <br/>
+            <input type="text" placeholder="Enter User Name: " name="username" required>
+            <br/>
+            <label for="firstname"><b>First Name</b></label>
+            <br/>
+            <input type="text" placeholder="Enter First Name: " name="firstname" required>
+            <br/>
+            <label for="lastname"><b>Last Name</b></label>
+            <br/>
+            <input type="text" placeholder="Enter Last Name: " name="lastname" required>
+            <br/>
+            <label for="password"><b>Password</b></label>
+            <br/>
+            <input type="password" placeholder="Enter Password: " name="password" required>
+            <br/>
+            <div class="text-center" style="margin-top: 20px;">
+                {% csrf_token %}
+                <button class="btn btn-primary " type="submit">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</body>
 </html>

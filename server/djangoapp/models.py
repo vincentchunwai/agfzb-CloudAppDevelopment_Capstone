@@ -9,6 +9,7 @@ class CarMake(models.Model):
         return 'Name: ' + self.name
 
 class CarModel(models.Model):
+    objects = models.Manager()
     id = models.IntegerField(default=1, primary_key=True)
     name = models.CharField(null=False, max_length=100, default='Car')
 
@@ -30,7 +31,7 @@ class CarModel(models.Model):
         default=SEDAN
     )
     make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    year = models.DateField(default=now())
+    year = models.DateField(default=now().year)
 
     def __str__(self):
         return "Name: " + self.name
@@ -51,17 +52,19 @@ class CarDealer:
         return "Dealer name: " + self.full_name
 
 class DealerReview:
-    def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year, sentiment, id):
-        self.dealership = dealership
-        self.name = name
-        self.purchase = purchase
-        self.review = review
-        self.purchase_date = purchase_date
-        self.car_make = car_make
-        self.car_model = car_model
-        self.car_year = car_year
-        self.sentiment = sentiment
-        self.id = id
+    def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year,sentiment, id):
+        self.dealership=dealership
+        self.name=name
+        self.purchase=purchase
+        self.review=review
+        self.purchase_date=purchase_date
+        self.car_make=car_make
+        self.car_model=car_model
+        self.car_year=car_year
+        self.sentiment=sentiment
+        self.id=id
 
     def __str__(self):
-        return "Dealer name: " + self.name + "\n" + "Sentiment: " + self.sentiment
+        return "Review: " + self.review +\
+                " Sentiment: " + self.sentiment
+
